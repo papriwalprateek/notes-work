@@ -1,0 +1,30 @@
+extends ../base.jade
+
+block content
+  h3 #{action} note
+  form(method="POST", enctype="multipart/form-data")
+    .form-group
+      label(for="title") Title
+      input.form-control(type="text", name="title", id="title", value=note.title)
+    .form-group
+      label(for="author") Author
+      input.form-control(type="text", name="author", id="author", value=note.author)
+    .form-group
+      label(for="publishedDate") Date Published
+      input.form-control(type="text", name="publishedDate", id="publishedDate", value=note.publishedDate)
+    .form-group
+      label(for="description") Description
+      input.form-control(type="text", name="description", id="description", value=note.description)
+    .form-group
+      label(for="image") Cover Image
+      input.form-control(type="file", name="image", id="image")
+    .form-group.hidden
+      label(for="imageUrl") Cover Image URL
+      input.form-control(type="text", name="imageUrl", id="imageUrl", value=note.imageUrl)
+    .form-group.hidden
+      label(for="createdBy") Created by
+      input.form-control(type="text", name="createdBy", id="createdBy", value=note.createdBy)
+    .form-group.hidden
+      label(for="createdById") Created by ID
+      input.form-control(type="text", name="createdById", id="createdById", value=note.createdById)
+    button.btn.btn-success(type="submit") Save

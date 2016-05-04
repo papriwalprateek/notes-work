@@ -1,0 +1,22 @@
+extends ../base.jade
+
+block content
+  h3 Notes
+
+  each note in notes
+    .media
+      a(href="/notes/#{note.id}")
+        .media-left
+            img(src=note.imageUrl || "http://placekitten.com/g/128/192")
+        .media-body
+          h4= note.title
+          p= note.author
+
+  if !notes.length
+    p No notes found.
+
+  if nextPageToken
+    nav
+      ul.pager
+        li
+          a(href="?pageToken=#{encodeURIComponent(nextPageToken)}") More

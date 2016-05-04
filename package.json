@@ -1,0 +1,61 @@
+{
+  "name": "notes-work",
+  "version": "0.3.0",
+  "description": "a simple app to keep day-to-day notes",
+  "repository": "",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "monitor": "nodemon app.js",
+    "deploy": "gcloud preview app deploy app.yaml",
+    "lint": "semistandard \"**/*.js\""
+  },
+  "author": "notes.work",
+  "contributors": [
+    {
+      "name": "Prateek Papriwal",
+      "email": "papriwalprateek@gmail.com"
+    }
+  ],
+  "semistandard": {
+    "globals": [
+      "after",
+      "afterEach",
+      "before",
+      "beforeEach",
+      "describe",
+      "it"
+    ]
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "body-parser": "^1.15.0",
+    "connect-memcached": "^0.2.0",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "express-winston": "^1.3.1",
+    "gcloud": "~0.31.0",
+    "jade": "^1.11.0",
+    "kerberos": "^0.0.19",
+    "lodash": "^4.11.1",
+    "mongodb": "^2.1.16",
+    "multer": "^1.1.0",
+    "mysql": "^2.10.2",
+    "nconf": "^0.8.4",
+    "passport": "^0.3.2",
+    "passport-google-oauth20": "^1.0.0",
+    "prompt": "^1.0.0",
+    "winston": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5",
+    "nodejs-repo-tools": "git+https://github.com/GoogleCloudPlatform/nodejs-repo-tools.git#21daa823090c43fb667157c8b5b0c3b7f45a8357",
+    "proxyquire": "^1.7.4",
+    "semistandard": "^7.0.5",
+    "sinon": "^1.17.3",
+    "supertest": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=0.12.7"
+  }
+}

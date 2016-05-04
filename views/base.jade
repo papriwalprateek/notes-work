@@ -1,0 +1,27 @@
+doctype html
+html(lang="en")
+  head
+    title notes.store
+    meta(charset='utf-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
+  body
+    .navbar.navbar-default
+      .container
+        .navbar-header
+          .navbar-brand notes.work
+
+          ul.nav.navbar-nav
+            li
+              a(href="/notes") Notes
+            li
+              a(href="/notes/add") Add note
+
+        p.navbar-text.navbar-right
+          if profile.image
+            img.img-circle(src=profile.image, width=24)
+          span #{profile.displayName} &nbsp;
+            a(href=logout) (logout)
+
+    .container
+      block content
