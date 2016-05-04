@@ -6,7 +6,7 @@ var config = require('../config');
 var ds = gcloud.datastore({
   projectId: config.get('GCLOUD_PROJECT')
 });
-var kind = 'Book';
+var kind = 'Note';
 
 // Translates from Datastore's entity format to
 // the format expected by the application.

@@ -7,20 +7,11 @@ block content
       label(for="title") Title
       input.form-control(type="text", name="title", id="title", value=note.title)
     .form-group
-      label(for="author") Author
-      input.form-control(type="text", name="author", id="author", value=note.author)
-    .form-group
-      label(for="publishedDate") Date Published
-      input.form-control(type="text", name="publishedDate", id="publishedDate", value=note.publishedDate)
+      label(for="url") Url
+      input.form-control(type="text", name="url", id="url", value=note.url)
     .form-group
       label(for="description") Description
-      input.form-control(type="text", name="description", id="description", value=note.description)
-    .form-group
-      label(for="image") Cover Image
-      input.form-control(type="file", name="image", id="image")
-    .form-group.hidden
-      label(for="imageUrl") Cover Image URL
-      input.form-control(type="text", name="imageUrl", id="imageUrl", value=note.imageUrl)
+      textarea.form-control(type="text", name="description", id="description", rows="3", style="white-space: pre-wrap;") #{note.description}
     .form-group.hidden
       label(for="createdBy") Created by
       input.form-control(type="text", name="createdBy", id="createdBy", value=note.createdBy)

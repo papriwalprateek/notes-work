@@ -13,12 +13,11 @@ block content
       span  Delete note
 
   .media
-    .media-left
-      img(src=note.imageUrl || "http://placekitten.com/g/128/192")
     .media-body
+
       h4= note.title
-        | &nbsp;
-        small= note.publishedDate
-      h5 By #{note.author||'unknown'}
-      p= note.description
-      small Added by #{note.createdBy}
+      div
+        a(href=note.url target="_blank") #{note.url}
+      div(style="margin-top:10px;")
+        span(style="font-weight:bold;") description:
+        div(style="white-space: pre-wrap;") #{note.description}

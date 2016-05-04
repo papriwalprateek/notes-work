@@ -4,13 +4,10 @@ block content
   h3 Notes
 
   each note in notes
-    .media
-      a(href="/notes/#{note.id}")
-        .media-left
-            img(src=note.imageUrl || "http://placekitten.com/g/128/192")
+    .media(style="background-color:#eee;padding:10px;font-weight:bold;")
+      a(href="/notes/#{note.id}", style="color:#333;")
         .media-body
-          h4= note.title
-          p= note.author
+          div= note.title
 
   if !notes.length
     p No notes found.

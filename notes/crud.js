@@ -2,7 +2,6 @@
 
 var express = require('express');
 var config = require('../config');
-var images = require('../lib/images');
 var oauth2 = require('../lib/oauth2');
 
 function getModel () {
@@ -10,6 +9,11 @@ function getModel () {
 }
 
 var router = express.Router();
+
+// temporary middleware
+var multer = require('multer')({
+  inMemory: true
+});
 
 // Use the oauth middleware to automatically get the user's profile
 // information and expose login/logout URLs to templates.
@@ -62,8 +66,7 @@ router.get('/add', function addForm (req, res) {
 // [START add]
 router.post(
   '/add',
-  images.multer.single('image'),
-  images.sendUploadToGCS,
+  multer.single('description'),
   function insert (req, res, next) {
     var data = req.body;
 
@@ -75,12 +78,6 @@ router.post(
       // Note: this condition won't occur as user can create post only when he
       // is logged in.
       data.createdBy = 'Anonymous';
-    }
-
-    // Was an image uploaded? If so, we'll use its public URL
-    // in cloud storage.
-    if (req.file && req.file.cloudStoragePublicUrl) {
-      data.imageUrl = req.file.cloudStoragePublicUrl;
     }
 
     // Save the data to the database.
@@ -122,18 +119,11 @@ router.get('/:note/edit', function editForm (req, res, next) {
  */
 router.post(
   '/:note/edit',
-  images.multer.single('image'),
-  images.sendUploadToGCS,
+  multer.single('description'),
   function update (req, res, next) {
     var data = req.body;
     if (data.createdById !== req.user.id) {
       return res.status(404).send('Not Found');
-    }
-
-    // Was an image uploaded? If so, we'll use its public URL
-    // in cloud storage.
-    if (req.file && req.file.cloudStoragePublicUrl) {
-      req.body.imageUrl = req.file.cloudStoragePublicUrl;
     }
 
     getModel().update(req.params.note, data, function (err, savedData) {
@@ -178,7 +168,7 @@ router.get('/:note/delete', function _delete (req, res, next) {
     if (entity.createdById !== req.user.id) {
       return res.status(404).send('Not Found');
     }
-    
+
     getModel().delete(req.params.note, function (err) {
       if (err) {
         return next(err);
