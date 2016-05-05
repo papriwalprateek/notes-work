@@ -29,12 +29,16 @@ var sessionConfig = {
   signed: true
 };
 
-// In production use the App Engine Memcache instance to store session data,
-// otherwise fallback to the default MemoryStore in development.
+
 if (config.get('NODE_ENV') === 'production') {
+  // In production use the App Engine Memcache instance to store session data,
+  // otherwise fallback to the default MemoryStore in development.
   sessionConfig.store = new MemcachedStore({
     hosts: [config.get('MEMCACHE_URL')]
   });
+
+  // set outh callback for production.
+  config.set('OAUTH2_CALLBACK', 'https://notes-work.appspot.com/auth/google/callback');
 }
 
 app.use(session(sessionConfig));

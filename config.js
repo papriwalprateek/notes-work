@@ -41,7 +41,7 @@ nconf
 
     OAUTH2_CLIENT_ID: '',
     OAUTH2_CLIENT_SECRET: '',
-    OAUTH2_CALLBACK: '/auth/google/callback',
+    OAUTH2_CALLBACK: 'http://localhost:8080/auth/google/callback',
 
     // Port the HTTP server
     PORT: 8080,
@@ -51,7 +51,6 @@ nconf
 
 // Check for required settings
 checkConfig('GCLOUD_PROJECT');
-checkConfig('CLOUD_BUCKET');
 checkConfig('OAUTH2_CLIENT_ID');
 checkConfig('OAUTH2_CLIENT_SECRET');
 
