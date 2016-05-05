@@ -42,7 +42,7 @@ nconf
     GCLOUD_PROJECT: '',
 
     // Connection url for the Memcache instance used to store session data
-    MEMCACHE_URL: '127.0.0.1:11211',
+    MEMCACHE_URL: 'memcache:11211',
 
     // MongoDB connection string
     // https://docs.mongodb.org/manual/reference/connection-string/
@@ -55,7 +55,7 @@ nconf
 
     OAUTH2_CLIENT_ID: '',
     OAUTH2_CLIENT_SECRET: '',
-    OAUTH2_CALLBACK: 'http://localhost:8080/auth/google/callback',
+    OAUTH2_CALLBACK: '/auth/google/callback',
 
     // Port the HTTP server
     PORT: 8080,
