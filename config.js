@@ -13,11 +13,6 @@ nconf
     'CLOUD_BUCKET',
     'DATA_BACKEND',
     'GCLOUD_PROJECT',
-    'MONGO_URL',
-    'MONGO_COLLECTION',
-    'MYSQL_USER',
-    'MYSQL_PASSWORD',
-    'MYSQL_HOST',
     'NODE_ENV',
     'OAUTH2_CLIENT_ID',
     'OAUTH2_CLIENT_SECRET',
@@ -43,15 +38,6 @@ nconf
 
     // Connection url for the Memcache instance used to store session data
     MEMCACHE_URL: 'memcache:11211',
-
-    // MongoDB connection string
-    // https://docs.mongodb.org/manual/reference/connection-string/
-    MONGO_URL: 'mongodb://localhost:27017',
-    MONGO_COLLECTION: 'books',
-
-    MYSQL_USER: '',
-    MYSQL_PASSWORD: '',
-    MYSQL_HOST: '',
 
     OAUTH2_CLIENT_ID: '',
     OAUTH2_CLIENT_SECRET: '',
