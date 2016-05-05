@@ -13,12 +13,12 @@ block content
 
   .media(style="background-color:#eee;padding:10px;")
     .media-body
-      div
-        if note.url != ''
+      if note.url != ''
+        div(style="margin-bottom:10px;")
           span(style="font-weight:bold;") url:
           div
             a(href=note.url target="_blank") #{note.url}
-      div(style="margin-top:10px;")
+      div
         span(style="font-weight:bold;") description:
         if note.description != ''
           div(style="white-space: pre-wrap;") #{note.description}
