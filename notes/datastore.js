@@ -115,6 +115,10 @@ function update (id, data, cb) {
     key = ds.key(kind);
   }
 
+  var t = Date.now()
+  data.createdAt = data.createdAt || t;
+  data.updatedAt = t;
+
   var entity = {
     key: key,
     data: toDatastore(data, ['description'])
