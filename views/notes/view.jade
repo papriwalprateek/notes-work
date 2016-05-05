@@ -1,8 +1,7 @@
 extends ../base.jade
 
 block content
-  h3 Note
-    small
+  div(style="font-size:20px;margin-bottom:10px;") #{note.title}
 
   .btn-group
     a(href="/notes/#{note.id}/edit", class='btn btn-primary btn-sm')
@@ -14,7 +13,6 @@ block content
 
   .media(style="background-color:#eee;padding:10px;")
     .media-body
-      div(style="font-size:20px;") #{note.title}
       div
         if note.url != ''
           span(style="font-weight:bold;") url:

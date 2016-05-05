@@ -7,15 +7,15 @@ html(lang="en")
     link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css")
   body
     .navbar.navbar-default
-      .container
+      .container(style="max-width:700px;")
         .navbar-header
-          .navbar-brand notes.work
+          .navbar-brand(style='font-family:"Roboto", sans-serif;font-weight:900;') notes.work
 
-          ul.nav.navbar-nav
-            li
-              a(href="/notes") Notes
-            li
-              a(href="/notes/add") Add note
+        ul.nav.navbar-nav
+          li
+            a(href="/notes") Notes
+          li
+            a(href="/notes/add") Add note
 
         p.navbar-text.navbar-right
           if profile.image
@@ -23,5 +23,5 @@ html(lang="en")
           span #{profile.displayName} &nbsp;
             a(href=logout) (logout)
 
-    .container
+    .container(style="max-width:700px;")
       block content
