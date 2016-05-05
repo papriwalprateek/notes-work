@@ -75,14 +75,9 @@ app.use(function (req, res) {
 
 // Basic error handler
 app.use(function (err, req, res, next) {
-  // add a workaround to retry whenever there is error
-  for (var i=0; i<5; i++) {
-    res.redirect(req.originalUrl);
-  }
-
-  // If our routes specified a specific response, then send that. Otherwise,
-  // send a generic message so as not to leak anything.
-  res.status(500).send(err.response || 'Something broke!');
+  // A workaround to retry request whenever there is some
+  // arbit appengine error.
+  res.redirect(req.originalUrl);
 });
 // [END errors]
 
