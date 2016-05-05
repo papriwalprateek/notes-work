@@ -5,13 +5,13 @@ block content
   form(method="POST", enctype="multipart/form-data")
     .form-group
       label(for="title") Title
-      input.form-control(type="text", name="title", id="title", value=note.title)
+      input.form-control(type="text", name="title", id="title", value=note.title, placeholder="required", required)
     .form-group
       label(for="url") Url
-      input.form-control(type="text", name="url", id="url", value=note.url)
+      input.form-control(type="text", name="url", id="url", value=note.url, placeholder="optional")
     .form-group
       label(for="description") Description
-      textarea.form-control(type="text", name="description", id="description", rows="3", style="white-space: pre-wrap;") #{note.description}
+      textarea.form-control(type="text", name="description", id="description", rows="3", placeholder="optional", style="white-space: pre-wrap;") #{note.description}
     .form-group.hidden
       label(for="createdBy") Created by
       input.form-control(type="text", name="createdBy", id="createdBy", value=note.createdBy)

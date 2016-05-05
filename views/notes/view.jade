@@ -12,12 +12,17 @@ block content
       i.glyphicon.glyphicon-trash
       span  Delete note
 
-  .media
+  .media(style="background-color:#eee;padding:10px;")
     .media-body
-
-      h4= note.title
+      div(style="font-size:20px;") #{note.title}
       div
-        a(href=note.url target="_blank") #{note.url}
+        if note.url != ''
+          span(style="font-weight:bold;") url:
+          div
+            a(href=note.url target="_blank") #{note.url}
       div(style="margin-top:10px;")
         span(style="font-weight:bold;") description:
-        div(style="white-space: pre-wrap;") #{note.description}
+        if note.description != ''
+          div(style="white-space: pre-wrap;") #{note.description}
+        else
+          div(style="white-space: pre-wrap;") No description.
